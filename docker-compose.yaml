@@ -19,12 +19,11 @@ services:
   wordpress:
     build:
       context: ./
-    container_name: wordpress-blocks
+    container_name: wordpress-boilerplate
     volumes:
       - wordpress:/var/www/html
-      - ./frontend/:/var/www/html/wp-content/themes/:rw
-      - ./frontend/plugins/:/var/www/html/wp-content/plugins/:rw
-      #- ./frontend/plugins/myplugin:/var/www/html/wp-content/plugins/myplugin
+      - ./frontend/themes/mytheme:/var/www/html/wp-content/themes/mytheme:rw
+      #- ./frontend/plugins/myplugin:/var/www/html/wp-content/plugins/myplugin:rw
     ports:
       - 80:80
     restart: always
