@@ -1,5 +1,6 @@
 services:
   db:
+    container_name: ${NAME}_db
     # We use a mariadb image which supports both amd64 & arm64 architecture
     image: mariadb:10.6.4-focal
     # If you really want to use MySQL, uncomment the following line
@@ -19,7 +20,7 @@ services:
   wordpress:
     build:
       context: ./
-    container_name: wordpress-boilerplate
+    container_name: "${NAME}_wp"
     volumes:
       - wordpress:/var/www/html
       - ./frontend/themes/mytheme:/var/www/html/wp-content/themes/mytheme:rw
